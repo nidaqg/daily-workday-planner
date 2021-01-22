@@ -22,48 +22,39 @@ $("#currentDay").text(currentDate);
 //Object array with data to fill out calender and to check actual time against
 var myDay = [{
   hour : "9",
-  dhour : "9",
-  amPM : "am"
+  dhour : "9 am",
 },
 {
   hour : "10",
-  dhour : "10",
-  amPM : "am"
+  dhour : "10 am",
 },
 {
   hour : "11",
-  dhour : "11",
-  amPM : "am"
+  dhour : "11 am",
 },
 {
   hour : "12",
-  dhour : "12",
-  amPM : "pm"
+  dhour : "12 pm",
 },
 {
   hour : "13",
-  dhour : "1",
-  amPM : "pm"
+  dhour : "1 pm",
 },
 {
   hour : "14",
-  dhour : "2",
-  amPM : "pm"
+  dhour : "2 pm",
 },
 {
   hour : "15",
-  dhour : "3",
-  amPM : "pm"
+  dhour : "3 pm",
 },
 {
   hour : "16",
-  dhour : "4",
-  amPM : "pm"
+  dhour : "4 pm",
 },
 {
   hour : "17",
-  dhour : "5",
-  amPM : "pm"
+  dhour : "5 pm",
 }];
 
 //used forEach statement to make row, etc for each hour in the array
@@ -74,7 +65,7 @@ myDay.forEach(function(myDay){
 
  //create time section, append
 var hourSection = $("<section>").addClass("hour col-3 pt-4");
-hourSection.text(myDay.dhour + myDay.amPM);
+hourSection.text(myDay.dhour);
 theRow.append(hourSection);
 
 //create actual input field, append
@@ -82,7 +73,7 @@ var inputField = $("<textarea>").addClass("textarea col-7");
 theRow.append(inputField);
 
 
-//create button to save schedule, append
+//create button to save schedule, add fontawesome icon, append
 var theButton = $("<button>").addClass("saveBtn col-2");
 theButton.addClass("far fa-save fa-3x");
 theRow.append(theButton);
