@@ -1,8 +1,6 @@
 
 //Create variable to set current date in header
 let DateTime = luxon.DateTime;
-let Interval = luxon.Interval;
-let Duration = luxon.Duration;
 
 let currentDate = DateTime.local().toLocaleString({ weekday: 'long', month: 'long', day: '2-digit'});
 let today = DateTime.local();
@@ -16,12 +14,9 @@ console.log(now)
 $(document).ready(function () {
     //Set the current date and day of the week in the header
 $("#currentDay").text(currentDate);
+$(".timerightnow").text(now);
  $("#mainContainer").addClass("time-block");
 
- var saved = JSON.parse(localStorage.getItem("allstoredItems"));
- console.log(saved)
-
- 
 });
 
 //Object array with data to fill out calender and to check actual time against
@@ -81,7 +76,6 @@ theRow.append(inputField);
 //create button to save schedule, add fontawesome icon, append
 var theButton = $("<button>").addClass("saveBtn col-2");
 theButton.addClass("far fa-save fa-3x");
-theButton.attr('id', myDay.hour);
 theRow.append(theButton);
 
 //if statement to assign class according to time of day
@@ -93,27 +87,22 @@ if (myDay.hour < currentHr) {
 } else {
   inputField.addClass("future");
 }
+
+//create variable to define key to use for local storage
+  var key = myDay.hour;
+
+  var reminders = localStorage.getItem(key);
+  console.log(reminders);
+  inputField.val(reminders);
+
+$("button").on("click", function(event) {
+      event.preventDefault()
+
+      //set saved reminders to local storage
+    var key = myDay.hour;
+    var value = inputField.val();
+
+  localStorage.setItem(key, value);
+        });        
+
 });
-
-//create array to hold all stored data
-let allstoredItems = [];
-
-//Add click event to save buttons
-$("button").click(function (event) {
-  event.preventDefault();
-   
-  var storedItems = {}
-
-  //get id of current target + the text content of it's sibling input field
-  var theTime = event.target.id
-  var theValue = $(this).siblings(".textarea").val()
-  
-  storedItems.thetime = theTime
-  storedItems.thevalue = theValue
-
-  //push all saved iterms to single array
-  allstoredItems.push(storedItems);
-  
-  //save to local storage
-localStorage.setItem("allstoredItems", JSON.stringify(allstoredItems));
-})

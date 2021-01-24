@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: rgba(248, 226, 229, 0.089);
 }
 
 textarea{
@@ -16,6 +17,7 @@ textarea{
 .jumbotron {
   text-align: center;
   background-color: transparent;
+  background-image: url("images/pink-background.jpg");
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
