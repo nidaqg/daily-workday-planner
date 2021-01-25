@@ -10,10 +10,15 @@ On entering reminders, the employee can save them by clicking the provided butto
 Find find attached images of the UI of the planner:
 
 
+
 Attached is the link to the github repository of the project:
+
 https://github.com/nidaqg/daily-workday-planner 
 
-attached is the link to the deployed project:
+
+Attached is the link to the deployed project:
+
+https://nidaqg.github.io/daily-workday-planner/ 
 
 
 
