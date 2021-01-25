@@ -41,6 +41,7 @@ textarea{
 
 .hour {
   background-color: #ffffff;
+  font-weight: bold;
   color: #000000;
   border-top: 1px dashed #000000;
   border-left: 1px solid;
