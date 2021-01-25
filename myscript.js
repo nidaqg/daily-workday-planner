@@ -16,6 +16,8 @@ $(document).ready(function () {
 $("#currentDay").text(currentDate);
 $(".timerightnow").text(now);
  $("#mainContainer").addClass("time-block");
+ //call function to render the planner
+ renderPlanner();
 
 });
 
@@ -57,6 +59,9 @@ var myDay = [{
   dhour : "5 pm"
 }];
 
+
+//function to render planner
+function renderPlanner() {
 //used forEach statement to make row, etc for each hour in the array
 myDay.forEach(function(myDay){
 //create row to hold everything
@@ -88,21 +93,27 @@ if (myDay.hour < currentHr) {
   inputField.addClass("future");
 }
 
-//create variable to define key to use for local storage
-  var key = myDay.hour;
+//create variable to define key to retrieve saved items from local storage
+  var theHour = myDay.hour;
 
-  var reminders = localStorage.getItem(key);
+  var reminders = localStorage.getItem(theHour);
   console.log(reminders);
-  inputField.val(reminders);
 
+  if (localStorage.getItem(theHour) !== null) {
+  //set inner text of planner to saved reminders
+  inputField.val(reminders);
+  }
+
+//add click event to buttons to save user input to local storage
 $("button").on("click", function(event) {
       event.preventDefault()
 
       //set saved reminders to local storage
-    var key = myDay.hour;
-    var value = inputField.val();
-
-  localStorage.setItem(key, value);
+    var theHour = myDay.hour;
+    var reminders = inputField.val();
+ 
+  localStorage.setItem(theHour, reminders);
         });        
 
 });
+}
