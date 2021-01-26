@@ -105,12 +105,12 @@ if (myDay.hour < currentHr) {
   }
 
 //add click event to buttons to save user input to local storage
-$("button").on("click", function(event) {
+theRow.on("click", "button", function(event) {
       event.preventDefault()
 
       //set saved reminders to local storage
-    var theHour = myDay.hour;
-    var reminders = inputField.val();
+      var theHour = myDay.hour;
+      var reminders = inputField.val();
  
   localStorage.setItem(theHour, reminders);
         });        
