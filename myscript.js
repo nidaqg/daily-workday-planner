@@ -86,6 +86,7 @@ theRow.append(theButton);
 //if statement to assign class according to time of day
 if (myDay.hour < currentHr) {
   inputField.addClass("past");
+  //disable input to time blocks that are past
   inputField.prop("disabled", true);
 } else if (myDay.hour == currentHr) {
   inputField.addClass("present");
